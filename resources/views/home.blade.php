@@ -702,7 +702,7 @@
     </div>
 
 
-    <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/popper.min.js"></script>
@@ -786,7 +786,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&libraries=places&callback=initAutocomplete"
         async defer></script>
 
-  <script src="js/main.js"></script>
+  <script src="{{ asset('js/main.js') }}"></script>
     
   </body>
 </html>

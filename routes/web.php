@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\JobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\AboutController;
 */
 Route::get('/', [MainController::class, 'index']) ->name('index');
 Route::get('/about_page', [AboutController::class, 'about_page']) ->name('about_page');
+Route::get('/jobs', [JobController::class, 'index']) -> name('jobs');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
