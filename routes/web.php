@@ -18,7 +18,9 @@ use App\Http\Controllers\JobController;
 */
 Route::get('/', [MainController::class, 'index']) ->name('index');
 Route::get('/about_page', [AboutController::class, 'about_page']) ->name('about_page');
-Route::get('/jobs', [JobController::class, 'index']) -> name('jobs');
+
+Route::get('/jobs', [JobController::class, 'index']) -> name('jobs_post');
+Route::get('/jobs_create', [JobController::class, 'create']) -> name('jobs_create');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

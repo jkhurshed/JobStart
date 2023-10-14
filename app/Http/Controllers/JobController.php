@@ -21,7 +21,10 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        //function for creating a job
+        $jobs = Job::all();
+        // passing the jobs variable to the view
+        return view('job', ['jobs' => $jobs]);
     }
 
     /**

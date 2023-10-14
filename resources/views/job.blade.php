@@ -9,21 +9,19 @@
 <div class="unit-5 overlay" style="background-image: url(asset('images/hero_bg_2.jpg') }};">
       <div class="container text-center">
         <h2 class="mb-0">Post a Job</h2>
-        <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Post a Job</span></p>
+        <p class="mb-0 unit-6"><a href="{{ route('index') }}">Home</a> <span class="sep">></span> <span>Post a Job</span></p>
       </div>
     </div>
 
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
-       
-          <div class="col-md-12 col-lg-8 mb-5">
+          <div class="col-md-12 col-lg-8 mb-5">          
           
-            
-          
-            <form action="#" class="p-5 bg-white">
-              
+            <form action="{{ route('jobs_create') }}" class="p-5 bg-white">
+              @csrf
               <div class="row form-group">
+                
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label for="option-price-1">
                     <input type="checkbox" id="option-price-1"> <span class="text-success">$300</span> For 30 days
