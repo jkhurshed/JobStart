@@ -22,6 +22,9 @@ class CompanyController extends Controller
     public function create()
     {
         //
+        Company::create($request->all());
+
+        return redirect('/');
     }
 
     /**

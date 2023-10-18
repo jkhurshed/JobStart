@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
 use App\Models\Job;
+use App\Models\JobType;
+use App\Models\Company;
+use App\Models\Location;
+use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
@@ -13,18 +17,35 @@ class JobController extends Controller
      */
     public function index()
     {
-        return view('job');
+        $jobs = Job::with(['company', 'job_type'])->get(); // Fetch jobs
+        //dd($jobs);
+        return view('job', ['jobs' => $jobs]);
+    }
+
+    public function get()
+    {
+        $jobTypes = JobType::all();
+        $company = Company::all();
+        $location = Location::all();
+
+        return view('job', [
+            'jobTypes' => $jobTypes,
+            'company' => $company,
+            'location' => $location
+
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
         //function for creating a job
-        $jobs = Job::all();
-        // passing the jobs variable to the view
-        return view('job', ['jobs' => $jobs]);
+        // dd($_POST);
+        Job::create($request->all());
+
+        return redirect()->route('job_get');
     }
 
     /**

@@ -22,6 +22,9 @@ class LocationController extends Controller
     public function create()
     {
         //
+        Location::create($request->all());
+
+        return redirect('/');
     }
 
     /**

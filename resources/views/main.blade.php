@@ -65,7 +65,7 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="{{ route('about_page') }}">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="{{ route('jobs_post') }}"><span class="rounded bg-primary py-2 px-3 text-white"><span class="h5 mr-2">+</span> Post a Job</span></a></li>
+                <li><a href="{{ route('job_get') }}"><span class="rounded bg-primary py-2 px-3 text-white"><span class="h5 mr-2">+</span> Post a Job</span></a></li>
               </ul>
             </nav>
           </div>
