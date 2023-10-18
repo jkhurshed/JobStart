@@ -9,99 +9,73 @@
 <div class="unit-5 overlay" style="background-image: url(asset('images/hero_bg_2.jpg') }};">
       <div class="container text-center">
         <h2 class="mb-0">Post a Job</h2>
-        <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Post a Job</span></p>
+        <p class="mb-0 unit-6"><a href="{{ route('index') }}">Home</a> <span class="sep">></span> <span>Post a Job</span></p>
       </div>
     </div>
 
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
-       
-          <div class="col-md-12 col-lg-8 mb-5">
+          <div class="col-md-12 col-lg-8 mb-5">          
           
-            
-          
-            <form action="#" class="p-5 bg-white">
-              
+            <form action="{{ route('jobs_create') }}" method="post" class="p-5 bg-white">
+              @csrf             
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-price-1">
-                    <input type="checkbox" id="option-price-1"> <span class="text-success">$300</span> For 30 days
-                  </label>
+                  <label class="font-weight-bold" for="salary">Salary $</label>
+                  <input type="number" id="salary" name="salary" class="form-control" placeholder="eg. 123" min="0">
                 </div>
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-price-2">
-                    <input type="checkbox" id="option-price-2"> <span class="text-success">$200</span> / Monthly Recurring
-                  </label>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="fullname">Job Title</label>
-                  <input type="text" id="fullname" class="form-control" placeholder="eg. Full Stack Frontend">
+                  <label class="font-weight-bold" for="title">Title</label>
+                  <input type="text" id="title" name="title" class="form-control" placeholder="eg. Backend developer">
                 </div>
               </div>
 
               <div class="row form-group mb-5">
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="fullname">Company</label>
-                  <input type="text" id="fullname" class="form-control" placeholder="eg. Facebook, Inc.">
+                  <label class="font-weight-bold" for="company_id">Company</label>
+                    <select id="company_id" name="company_id" class="form-control">
+                      @foreach ($company as $comp)
+                        <option value="{{ $comp->id }}">{{ $comp->name }}</option>
+                      @endforeach
+                    </select>
                 </div>
               </div>
 
-
               <div class="row form-group">
                 <div class="col-md-12"><h3>Job Type</h3></div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-1">
-                    <input type="radio" id="option-job-type-1" name="job-type"> Full Time
-                  </label>
-                </div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-2">
-                    <input type="radio" id="option-job-type-2" name="job-type"> Part Time
-                  </label>
-                </div>
-
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-3">
-                    <input type="radio" id="option-job-type-3" name="job-type"> Freelance
-                </div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-4">
-                    <input type="radio" id="option-job-type-4" name="job-type"> Internship
-                  </label>
-                </div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-4">
-                    <input type="radio" id="option-job-type-4" name="job-type"> Termporary
-                  </label>
-                </div>
-
+                      @foreach ($jobTypes as $type)
+                        <div class="col-md-12 mb-3 mb-md-0">
+                          <label for="option-job-type-{{ $type->id }}">
+                            <input type="radio" id="option-job-type-{{ $type->id }}" name="type" value="{{ $type->id }}">{{ $type->name }}
+                          </label>
+                        </div>
+                      @endforeach                
               </div>
 
               <div class="row form-group mb-4">
                 <div class="col-md-12"><h3>Location</h3></div>
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <input type="text" class="form-control" placeholder="New York City">
+                
+                    <select id="job_type" name="location_id" class="form-control">
+                      @foreach ($location as $loc)
+                        <option value="{{ $loc->id }}">{{ $loc->name }}</option>
+                      @endforeach
+                    </select>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12"><h3>Job Description</h3></div>
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+                  <textarea type="text" class="form-control" id="description" name="description" cols="30" rows="5"></textarea>
                 </div>
               </div>
-
               <div class="row form-group">
                 <div class="col-md-12">
                   <input type="submit" value="Post" class="btn btn-primary  py-2 px-5">
                 </div>
               </div>
-
-  
             </form>
           </div>
 
@@ -213,17 +187,17 @@
       </div>
     </div>
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/bootstrap-datepicker.min.js"></script>
-  <script src="js/aos.js"></script>
+  <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+  <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
+  <script src="{{ asset('js/jquery-ui.js') }}"></script>
+  <script src="{{ asset('js/popper.min.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.countdown.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+  <script src="{{ asset('js/aos.js') }}"></script>
   <script src="{{ asset('js/main.js') }}"></script>
 
 @endsection

@@ -13,7 +13,10 @@ class JobTypeController extends Controller
      */
     public function index()
     {
-        //
+        $job_type = JobType::all();
+        
+        // passing the jobs variable to the view
+        return view('job', ['job_type' => $job_type]);
     }
 
     /**
@@ -22,6 +25,9 @@ class JobTypeController extends Controller
     public function create()
     {
         //
+        JobType::create($request->all());
+
+        return redirect('/');
     }
 
     /**

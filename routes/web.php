@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\JobTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,12 @@ use App\Http\Controllers\JobController;
 */
 Route::get('/', [MainController::class, 'index']) ->name('index');
 Route::get('/about_page', [AboutController::class, 'about_page']) ->name('about_page');
-Route::get('/jobs', [JobController::class, 'index']) -> name('jobs');
+
+Route::get('/jobs', [JobController::class, 'index']) -> name('jobs_post');
+Route::get('/jobs-get', [JobController::class, 'get']) -> name('job_get');
+Route::post('/jobs_create', [JobController::class, 'create']) -> name('jobs_create');
+
+Route::get('job_types', [JobTypeController::class, 'index']) -> name('job_types');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
