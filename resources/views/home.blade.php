@@ -91,10 +91,11 @@
             <h2 class="font-weight-bold text-black">Recent Jobs</h2>
           </div>
           <div class="col-md-3" data-aos="fade" data-aos-delay="200">
-            <a href="#" class="btn btn-primary py-3 btn-block"><span class="h5">+</span> Post a Job</a>
+            <a href="{{ route('job_get') }}" class="btn btn-primary py-3 btn-block"><span class="h5">+</span> Post a Job</a>
           </div>
         </div>
 
+        @foreach($jobs as $j)
         <div class="row" data-aos="fade">
          <div class="col-md-12">
 
@@ -102,14 +103,14 @@
 
               <div class="mb-4 mb-md-0 mr-5">
                <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Frontend Development</h2>
+                 <h2 class="mr-3 text-black h4">{{ $j->title }}</h2>
                  <div class="badge-wrap">
-                  <span class="bg-primary text-white badge py-2 px-4">Partime</span>
+                  <span class="bg-primary text-white badge py-2 px-4">{{ $j->category[0]->title }}</span>
                  </div>
                </div>
                <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook, Inc.</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
+                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">{{ $j->company[0]->name }}</a></div>
+                 <div><span class="fl-bigmug-line-big104"></span> <span>{{ $j->locations[0]->name }}</span></div>
                </div>
               </div>
 
@@ -121,295 +122,9 @@
 
          </div>
         </div>
+        @endforeach
 
-        <div class="row" data-aos="fade">
-         <div class="col-md-12">
-           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
 
-              <div class="mb-4 mb-md-0 mr-5">
-               <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Full Stack Developer</h2>
-                 <div class="badge-wrap">
-                  <span class="bg-warning text-white badge py-2 px-4">Full Time</span>
-                 </div>
-               </div>
-               <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Google, Inc.</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-               </div>
-              </div>
-
-              <div class="ml-auto">
-                <a href="#" class="btn btn-danger rounded-circle btn-favorite active"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-
-           </div>
-         </div>
-        </div>
-
-        <div class="row" data-aos="fade">
-         <div class="col-md-12">
-           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-              <div class="mb-4 mb-md-0 mr-5">
-               <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Open Source Interactive Developer</h2>
-                 <div class="badge-wrap">
-                  <span class="bg-info text-white badge py-2 px-4">Freelance</span>
-                 </div>
-               </div>
-               <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">New York Times</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-               </div>
-              </div>
-              
-              <div class="ml-auto">
-                <a href="#" class="btn btn-secondary rounded-circle btn-favorite text-gray-500"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-
-           </div>
-         </div>
-        </div>
-        
-        <div class="row" data-aos="fade">
-         <div class="col-md-12">
-
-           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-              <div class="mb-4 mb-md-0 mr-5">
-               <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Frontend Development</h2>
-                 <div class="badge-wrap">
-                  <span class="bg-secondary text-white badge py-2 px-4">Internship</span>
-                 </div>
-               </div>
-               <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook, Inc.</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-               </div>
-              </div>
-
-              <div class="ml-auto">
-                <a href="#" class="btn btn-secondary rounded-circle btn-favorite text-gray-500"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-           </div>
-
-         </div>
-        </div>
-
-        <div class="row" data-aos="fade">
-         <div class="col-md-12">
-           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-              <div class="mb-4 mb-md-0 mr-5">
-               <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Full Stack Developer</h2>
-                 <div class="badge-wrap">
-                  <span class="bg-warning text-white badge py-2 px-4">Full Time</span>
-                 </div>
-               </div>
-               <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Google, Inc.</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-               </div>
-              </div>
-
-              <div class="ml-auto">
-                <a href="#" class="btn btn-secondary rounded-circle btn-favorite text-gray-500"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-
-           </div>
-         </div>
-        </div>
-
-        <div class="row" data-aos="fade">
-         <div class="col-md-12">
-           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-              <div class="mb-4 mb-md-0 mr-5">
-               <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Open Source Interactive Developer</h2>
-                 <div class="badge-wrap">
-                  <span class="bg-danger text-white badge py-2 px-4">Temporary</span>
-                 </div>
-               </div>
-               <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">New York Times</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-               </div>
-              </div>
-              
-              <div class="ml-auto">
-                <a href="#" class="btn btn-secondary rounded-circle btn-favorite text-gray-500"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-
-           </div>
-         </div>
-        </div>
-
-        <div class="row" data-aos="fade">
-         <div class="col-md-12">
-
-           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-              <div class="mb-4 mb-md-0 mr-5">
-               <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Frontend Development</h2>
-                 <div class="badge-wrap">
-                  <span class="bg-primary text-white badge py-2 px-4">Partime</span>
-                 </div>
-               </div>
-               <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook, Inc.</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-               </div>
-              </div>
-
-              <div class="ml-auto">
-                <a href="#" class="btn btn-secondary rounded-circle btn-favorite text-gray-500"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-           </div>
-
-         </div>
-        </div>
-
-        <div class="row" data-aos="fade">
-         <div class="col-md-12">
-           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-              <div class="mb-4 mb-md-0 mr-5">
-               <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Full Stack Developer</h2>
-                 <div class="badge-wrap">
-                  <span class="bg-warning text-white badge py-2 px-4">Full Time</span>
-                 </div>
-               </div>
-               <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Google, Inc.</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-               </div>
-              </div>
-
-              <div class="ml-auto">
-                <a href="#" class="btn btn-secondary rounded-circle btn-favorite text-gray-500"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-
-           </div>
-         </div>
-        </div>
-
-        <div class="row" data-aos="fade">
-         <div class="col-md-12">
-           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-              <div class="mb-4 mb-md-0 mr-5">
-               <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Open Source Interactive Developer</h2>
-                 <div class="badge-wrap">
-                  <span class="bg-info text-white badge py-2 px-4">Freelance</span>
-                 </div>
-               </div>
-               <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">New York Times</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-               </div>
-              </div>
-              
-              <div class="ml-auto">
-                <a href="#" class="btn btn-secondary rounded-circle btn-favorite text-gray-500"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-
-           </div>
-         </div>
-        </div>
-        
-        <div class="row" data-aos="fade">
-         <div class="col-md-12">
-
-           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-              <div class="mb-4 mb-md-0 mr-5">
-               <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Frontend Development</h2>
-                 <div class="badge-wrap">
-                  <span class="bg-secondary text-white badge py-2 px-4">Internship</span>
-                 </div>
-               </div>
-               <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook, Inc.</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-               </div>
-              </div>
-
-              <div class="ml-auto">
-                <a href="#" class="btn btn-secondary rounded-circle btn-favorite text-gray-500"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-           </div>
-
-         </div>
-        </div>
-
-        <div class="row" data-aos="fade">
-         <div class="col-md-12">
-           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-              <div class="mb-4 mb-md-0 mr-5">
-               <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Full Stack Developer</h2>
-                 <div class="badge-wrap">
-                  <span class="bg-warning text-white badge py-2 px-4">Full Time</span>
-                 </div>
-               </div>
-               <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Google, Inc.</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-               </div>
-              </div>
-
-              <div class="ml-auto">
-                <a href="#" class="btn btn-secondary rounded-circle btn-favorite text-gray-500"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-
-           </div>
-         </div>
-        </div>
-
-        <div class="row" data-aos="fade">
-         <div class="col-md-12">
-           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-              <div class="mb-4 mb-md-0 mr-5">
-               <div class="job-post-item-header d-flex align-items-center">
-                 <h2 class="mr-3 text-black h4">Open Source Interactive Developer</h2>
-                 <div class="badge-wrap">
-                  <span class="bg-danger text-white badge py-2 px-4">Temporary</span>
-                 </div>
-               </div>
-               <div class="job-post-item-body d-block d-md-flex">
-                 <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">New York Times</a></div>
-                 <div><span class="fl-bigmug-line-big104"></span> <span>New York City, USA</span></div>
-               </div>
-              </div>
-              
-              <div class="ml-auto">
-                <a href="#" class="btn btn-secondary rounded-circle btn-favorite text-gray-500"><span class="icon-heart"></span></a>
-                <a href="job-single.html" class="btn btn-primary py-2">Apply Job</a>
-              </div>
-
-           </div>
-         </div>
-        </div>
 
         <div class="row mt-5">
           <div class="col-md-12 text-center">
@@ -429,11 +144,7 @@
 
 
       </div>
-    </div>    
-
-
-    
-
+    </div>
     
 
     <div class="site-section">

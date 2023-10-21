@@ -8,6 +8,7 @@ use App\Models\Job;
 use App\Models\JobType;
 use App\Models\Company;
 use App\Models\Location;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -17,8 +18,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::with(['company', 'job_type'])->get(); // Fetch jobs
-        //dd($jobs);
+        $jobs = Job::with(['company', 'job_type', 'locations', 'category'])->get(); // Fetch jobs
+        // dd($jobs);
         return view('job', ['jobs' => $jobs]);
     }
 
@@ -27,12 +28,15 @@ class JobController extends Controller
         $jobTypes = JobType::all();
         $company = Company::all();
         $location = Location::all();
+        $category = Category::all();
+        
+        // dd($category);
 
         return view('job', [
             'jobTypes' => $jobTypes,
             'company' => $company,
-            'location' => $location
-
+            'location' => $location,
+            'category' => $category
         ]);
     }
 
