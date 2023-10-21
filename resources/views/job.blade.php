@@ -53,11 +53,22 @@
                       @endforeach                
               </div>
 
+              <div class="row form-group mb-5">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="category_id">Category</label>
+                    <select id="category_id" name="category_id" class="form-control">
+                      @foreach ($category as $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+                      @endforeach
+                    </select>
+                </div>
+              </div>
+
               <div class="row form-group mb-4">
                 <div class="col-md-12"><h3>Location</h3></div>
                 <div class="col-md-12 mb-3 mb-md-0">
                 
-                    <select id="job_type" name="location_id" class="form-control">
+                    <select id="location_id" name="location_id" class="form-control">
                       @foreach ($location as $loc)
                         <option value="{{ $loc->id }}">{{ $loc->name }}</option>
                       @endforeach

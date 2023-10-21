@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Job;
 
-class Location extends Model
+class Category extends Model
 {
     use HasFactory;
-    protected $table = 'locations';
+    protected $table = 'category';
 
     public function job()
     {
-        return $this->belongsTo(Job::class, 'location_id');
+        return $this->belongsTo(Job::class, 'category_id');
     }
 }
